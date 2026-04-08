@@ -1,0 +1,12 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (¡NUNCA subir al repositorio!)
+.env
+
+# Output generado por el ingestor
+output/
+
+# Logs
+*.log
+npm-debug.log*

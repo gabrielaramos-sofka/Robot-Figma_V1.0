@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Antigravity | Generador Maestro</title>
+  
+  <!-- Estilos y Fuentes Requeridas -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Mapeo de Design Tokens (Tailwind Config Inject) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#FF7E08',
+              hover: '#E06A00',
+              gradient: '#FF9A00'
+            },
+            surface: '#FFFFFF',
+            base: '#FAF8F6',
+            borderline: '#E8E2DA',
+          },
+          fontFamily: {
+            title: ['Clash Grotesk', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-base font-body text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Header Oficial (Alto 70px, Dark Gradient Sticky) -->
+  <header class="sticky top-0 z-50 h-[70px] bg-gradient-to-r from-[#000000] to-[#1a1a1a] flex items-center px-6 shadow-md border-b border-gray-800">
+    <div class="flex items-center gap-3">
+      <!-- Logo Cuadrado Primario -->
+      <div class="w-8 h-8 bg-brand rounded-[6px] flex items-center justify-center shadow-lg">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+      </div>
+      <h1 class="text-white font-title font-semibold text-xl tracking-wide">Antigravity Core</h1>
+    </div>
+    
+    <div class="ml-auto flex items-center gap-4">
+       <span id="status-badge" class="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full border border-green-500/30 flex items-center gap-2">
+         <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse-slow"></span> Idle
+       </span>
+    </div>
+  </header>
+
+  <!-- Hero y Controles Core -->
+  <main class="flex-grow p-8 max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    
+    <!-- Controles Izquierda -->
+    <div class="flex flex-col gap-6">
+      <div class="mb-2">
+        <h2 class="font-title text-4xl font-bold mb-3 text-gray-900">React Engine</h2>
+        <p class="text-gray-500 leading-relaxed max-w-md">Orquesta la extracción profunda del Design System y la generación autónoma de componentes TSX limpios.</p>
+      </div>
+
+      <!-- Paso 1: Ingestión (Extracción Profunda) -->
+      <div class="bg-surface border border-borderline rounded-[16px] shadow-sm p-6 relative overflow-hidden">
+        <h3 class="font-title text-xl font-semibold mb-2">Paso 1: Conexión Figma</h3>
+        <p class="text-sm text-gray-500 mb-4">Ingresa las credenciales de Figma para descargar el diccionario de la API Oficial.</p>
+        
+        <div class="space-y-4 mb-5">
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Figma Personal Access Token</label>
+            <input type="password" id="input-token" class="w-full border border-borderline rounded-[6px] px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand" placeholder="figd_...">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Figma File ID o URL</label>
+            <input type="text" id="input-fileid" class="w-full border border-borderline rounded-[6px] px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand" placeholder="xYz12345...">
+          </div>
+        </div>
+
+        <button id="btn-fetch" class="w-full py-2 px-4 rounded-[6px] border border-brand text-brand hover:bg-brand/5 font-title text-md font-semibold transition-colors focus:ring-2 focus:ring-brand/20">
+           Iniciar Extracción Profunda
+        </button>
+      </div>
+
+      <!-- Paso 2: Generación Masiva -->
+      <div class="bg-surface border border-borderline rounded-[16px] shadow-sm p-6 relative overflow-hidden group">
+        <!-- Decoration -->
+        <div class="absolute -right-6 -top-6 w-24 h-24 bg-brand/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+        
+        <h3 class="font-title text-xl font-semibold mb-2">Paso 2: Generación Masiva</h3>
+        <p class="text-sm text-gray-500 mb-6">Purgará el directorio anterior y reconstruirá cientos de componentes ignorando íconos estáticos.</p>
+        
+        <button id="btn-generate" disabled class="w-full relative z-10 py-3.5 px-6 rounded-xl border border-borderline bg-gray-50 text-gray-400 font-title text-lg font-semibold transition-all focus:ring-4 focus:ring-brand/20 disabled:opacity-50 disabled:cursor-not-allowed">
+           Bloqueado: Requiere Extracción
+        </button>
+      </div>
+
+      <!-- Paso 3: Exportar Documentación -->
+      <div class="bg-surface border border-borderline rounded-[16px] shadow-sm p-6 relative overflow-hidden group">
+        <h3 class="font-title text-xl font-semibold mb-2">Paso 3: Exportar Documentación</h3>
+        <p class="text-sm text-gray-500 mb-6">Genera el archivo Markdown estructural de tu Design System basado en los componentes más actuales producidos.</p>
+        
+        <button id="btn-download" disabled class="w-full relative z-10 py-3.5 px-6 rounded-xl border border-borderline bg-gray-50 text-gray-400 font-title text-lg font-semibold transition-all focus:ring-4 focus:ring-brand/20 disabled:opacity-50 disabled:cursor-not-allowed">
+           Bloqueado: Requiere Generación
+        </button>
+      </div>
+    </div>
+
+    <!-- Consola Log Derecha -->
+    <div class="bg-surface border border-borderline rounded-[16px] shadow-sm flex flex-col h-[500px] overflow-hidden">
+      <!-- Barra titulo consola -->
+      <div class="bg-gray-100 px-4 py-3 border-b border-borderline flex items-center justify-between">
+        <div class="flex gap-2">
+          <div class="w-3 h-3 rounded-full bg-red-400"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+          <div class="w-3 h-3 rounded-full bg-green-400"></div>
+        </div>
+        <span class="text-xs font-mono text-gray-500">process.stdout</span>
+      </div>
+      
+      <!-- Cuerpo de Consola -->
+      <div id="console-output" class="flex-grow bg-[#1a1c23] p-4 overflow-y-auto leading-relaxed scroll-smooth flex flex-col space-y-1">
+         <div class="text-gray-400 font-mono text-sm">Waiting for triggers...</div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const btnGenerate = document.getElementById('btn-generate');
+    const btnFetch = document.getElementById('btn-fetch');
+    const btnDownload = document.getElementById('btn-download');
+    const consoleOutput = document.getElementById('console-output');
+    const statusBadge = document.getElementById('status-badge');
+    const inputToken = document.getElementById('input-token');
+    const inputFileid = document.getElementById('input-fileid');
+
+    // Cargar del localStorage si existen (por conveniencia)
+    inputToken.value = localStorage.getItem('figmaToken') || '';
+    inputFileid.value = localStorage.getItem('figmaFileId') || '';
+
+    // Inicializar Motor EventSource (Server-Sent Events)
+    let eventSource = null;
+
+    function appendLog(msg, isSystem = false) {
+      const line = document.createElement('div');
+      line.className = `font-mono text-sm break-all ${isSystem ? 'text-brand font-semibold' : 'text-gray-300'}`;
+      line.textContent = msg;
+      consoleOutput.appendChild(line);
+      // Auto Scroll to bottom
+      consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    }
+
+    function connectSSE() {
+      if (eventSource) return;
+      eventSource = new EventSource('/api/stream');
+      
+      eventSource.onmessage = (e) => {
+        const text = e.data.trim();
+        
+        if (text === '__FETCH_FINISHED__') {
+          btnFetch.disabled = false;
+          btnFetch.innerHTML = 'Iniciar Extracción Profunda';
+          btnFetch.classList.remove('opacity-50', 'cursor-not-allowed');
+          changeStatus('Idle');
+          
+          btnGenerate.disabled = false;
+          btnGenerate.innerHTML = 'Ejecutar Secuencia React';
+          btnGenerate.className = "w-full relative z-10 py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand to-brand-gradient text-white font-title text-lg font-semibold hover:shadow-lg hover:shadow-brand/30 hover:scale-[1.01] transition-all transform focus:ring-4 focus:ring-brand/20 active:scale-[0.98]";
+          appendLog('✅ [SISTEMA] Paso 1 listo. Ahora puedes ejecutar la Secuencia React.', true);
+          return;
+        }
+
+        if (text === '__FINISHED__') {
+          btnGenerate.disabled = false;
+          btnGenerate.innerHTML = 'Secuencia React Finalizada';
+          
+          btnFetch.disabled = false;
+          
+          btnDownload.disabled = false;
+          btnDownload.innerHTML = 'Descargar Catálogo .MD';
+          btnDownload.className = "w-full relative z-10 py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand to-brand-gradient text-white font-title text-lg font-semibold hover:shadow-lg hover:shadow-brand/30 hover:scale-[1.01] transition-all transform focus:ring-4 focus:ring-brand/20 active:scale-[0.98]";
+
+          changeStatus('Idle');
+          appendLog('✅ [SISTEMA] Paso 2 listo. Se ha habilitado la Descarga del Documento MD.', true);
+          return;
+        }
+
+        appendLog(text, text.includes('[SISTEMA]'));
+      };
+
+      eventSource.onerror = () => {
+        appendLog('❌ Protocolo SSE Desconectado. Reconectando...', true);
+        eventSource.close();
+        eventSource = null;
+        setTimeout(connectSSE, 3000);
+      };
+    }
+
+    function changeStatus(state) {
+      if (state === 'Running') {
+        statusBadge.className = "px-3 py-1 bg-brand/20 text-brand text-xs font-semibold rounded-full border border-brand/30 flex items-center gap-2";
+        statusBadge.innerHTML = `<span class="w-2 h-2 bg-brand rounded-full animate-bounce"></span> Running`;
+      } else {
+        statusBadge.className = "px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full border border-green-500/30 flex items-center gap-2";
+        statusBadge.innerHTML = `<span class="w-2 h-2 bg-green-400 rounded-full animate-pulse-slow"></span> Idle`;
+      }
+    }
+
+    // Checking status actual del Node
+    fetch('/api/status').then(r => r.json()).then(data => {
+       if (data.status === 'running') {
+          btnGenerate.disabled = true;
+          changeStatus('Running');
+       }
+    });
+
+    btnFetch.addEventListener('click', async () => {
+      const figmaToken = inputToken.value.trim();
+      let fileId = inputFileid.value.trim();
+      
+      if (!figmaToken || !fileId) {
+         alert('Por favor, ingresa el Token y el File ID.');
+         return;
+      }
+
+      // Si pasaron una URL completa, extraer el ID
+      const figmaUrlMatch = fileId.match(/design\/([a-zA-Z0-9]+)/);
+      if (figmaUrlMatch) {
+         fileId = figmaUrlMatch[1];
+      } else if (fileId.includes('/file/')) {
+         const oldUrlMatch = fileId.match(/file\/([a-zA-Z0-9]+)/);
+         if(oldUrlMatch) fileId = oldUrlMatch[1];
+      }
+
+      // Guardado por conveniencia local
+      localStorage.setItem('figmaToken', figmaToken);
+      localStorage.setItem('figmaFileId', fileId);
+
+      // Bloquear botones
+      btnFetch.disabled = true;
+      btnFetch.innerHTML = 'Extrayendo...';
+      btnFetch.classList.add('opacity-50', 'cursor-not-allowed');
+      btnGenerate.disabled = true;
+      changeStatus('Running');
+
+      try {
+        const res = await fetch('/api/fetch', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ figmaToken, fileId })
+        });
+        if (!res.ok) {
+           const err = await res.json();
+           appendLog(`❌ [ERROR] API devolvió error: ${err.error}`, true);
+           btnFetch.disabled = false;
+           btnFetch.innerHTML = 'Iniciar Extracción Profunda';
+           btnFetch.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+      } catch (error) {
+        appendLog(`❌ [ERROR NETWORK]: ${error.message}`, true);
+        btnFetch.disabled = false;
+        btnFetch.innerHTML = 'Iniciar Extracción Profunda';
+        btnFetch.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+    });
+
+    btnGenerate.addEventListener('click', async () => {
+      // Bloquear botones
+      btnGenerate.disabled = true;
+      btnGenerate.innerHTML = 'Procesando...';
+      btnGenerate.classList.add('opacity-50', 'cursor-not-allowed');
+      btnFetch.disabled = true;
+      changeStatus('Running');
+
+      try {
+        const res = await fetch('/api/generate', { method: 'POST' });
+        if (!res.ok) {
+           const err = await res.json();
+           appendLog(`❌ [ERROR] API devolvió error: ${err.error}`, true);
+           btnGenerate.disabled = false;
+           btnGenerate.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+      } catch (error) {
+        appendLog(`❌ [ERROR NETWORK]: ${error.message}`, true);
+        btnGenerate.disabled = false;
+        btnGenerate.classList.remove('opacity-50', 'cursor-not-allowed');
+      }
+    });
+
+    btnDownload.addEventListener('click', () => {
+       appendLog('📥 [SISTEMA] Generando estructura documental en el backend...');
+       // Directamente redirigir. El EndPoint devolverá un archivo descargable.
+       window.location.href = '/api/download-md';
+       
+       setTimeout(() => {
+          appendLog('✅ [SISTEMA] Documentación MD procesada y entregada a tu navegador.', true);
+       }, 1500);
+    });
+
+    // Encender pipe asíncrono
+    connectSSE();
+  </script>
+</body>
+</html>

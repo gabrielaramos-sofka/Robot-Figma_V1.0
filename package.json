@@ -1,0 +1,27 @@
+{
+  "name": "robot-de-figma",
+  "version": "1.0.0",
+  "description": "Figma API Ingestor Bot — Descarga el mapa de componentes desde la API oficial de Figma",
+  "main": "index.js",
+  "scripts": {
+    "start:dashboard": "node server.js",
+    "ingest:figma": "node scripts/figma-ingestor.js",
+    "deep:fetch": "node scripts/deep-fetch.js",
+    "generate:react": "node scripts/react-generator.js",
+    "generate:react:smart": "node scripts/react-generator-smart.js",
+    "export:tailwind": "node scripts/tailwind-config-exporter.js",
+    "generate:preview": "node scripts/generate-preview.js",
+    "visualize": "node scripts/visualizer.js",
+    "build:pilot": "npm run deep:fetch && npm run generate:react && npm run export:tailwind && npm run generate:preview && npm run visualize",
+    "build:massive": "npm run deep:fetch && npm run generate:react && npm run export:tailwind",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  }
+}
