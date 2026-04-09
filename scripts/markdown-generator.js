@@ -376,6 +376,7 @@ function generateMarkdown() {
 `;
 
   mdContent += SCORECARD;
+  mdContent += `\n\n---\nDocumento generado mediante IA | Robot creado por: Gabriela Ramos Rangel - UX&UI Specialist\n`;
 
   fs.writeFileSync(OUTPUT_FILE, mdContent, 'utf-8');
   console.log(`✅ ¡Mega-Documento HuKit 100% DINÁMICO generado! ${totalGenerates} Archivos agrupados en Arquitecturas de Propiedades.\n📍 Destino: ${OUTPUT_FILE}`);

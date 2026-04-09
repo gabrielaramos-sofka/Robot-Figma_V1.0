@@ -304,6 +304,8 @@ function generateTsx({ pascalName, nodeId, doc, mapper }) {
 /**
  * Componente: ${pascalName}
  * Nodo Figma: ${nodeId}
+ * 
+ * Documento generado mediante IA | Robot creado por: Gabriela Ramos Rangel - UX&UI Specialist
  */
 export const ${pascalName} = () => {
   return (
